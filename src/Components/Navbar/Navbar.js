@@ -12,7 +12,7 @@ const Navbar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <div id="navlist" className="navbar-nav p-4 p-lg-0">
-                    <a href="#OurServices" className="nav-item nav-link active">Our Serices</a>
+                    <a href="#OurServices" className="nav-item nav-link active">Our Services</a>
                     <a href="#WhyUs" className="nav-item nav-link active">Why Us</a>
                     <a href="#Testimonial" className="nav-item nav-link active">Testimonial</a>
                     <a href="#FAQ" className="nav-item nav-link active">FAQ</a>

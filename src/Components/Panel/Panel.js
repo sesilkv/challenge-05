@@ -9,7 +9,7 @@ const Panel = (props) => {
 
     const { register, handleSubmit } = useForm()
     const onSubmit = () => {
-        fetch('https://rent-cars-api.herokuapp.com/customer/car')
+        fetch('https://625d73e74c36c753577540cb.mockapi.io/fejs2/api/c5-cars')
         .then( response => {
             return response.json()
         })

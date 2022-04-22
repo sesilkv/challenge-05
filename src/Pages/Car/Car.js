@@ -17,7 +17,7 @@ const Car = (props) => {
     const [car, setCar] = useState(null)
 
     useEffect(() => {
-        fetch(`https://rent-cars-api.herokuapp.com/customer/car/${param.id}`)
+        fetch(`https://625d73e74c36c753577540cb.mockapi.io/fejs2/api/c5-cars/${param.id}`)
         .then( response => {
             return response.json()
         })
@@ -97,7 +97,7 @@ const Car = (props) => {
                                                 <img src={IconPeople} className='car-icon'/>
                                             </div>
                                             <div className='car-book-text'>
-                                                4 orang (ambil dari API)
+                                                {car.passenger}
                                             </div>
                                         </div>
                                         <div className='car-detail-icons'>
@@ -105,7 +105,7 @@ const Car = (props) => {
                                                 <img src={IconGear} className='car-icon'/>
                                             </div>
                                             <div className='car-book-text'>
-                                                Manual (ambil dari API)
+                                                {car.transmission}
                                             </div>
                                         </div>
                                         <div className='car-detail-icons'>
@@ -113,7 +113,7 @@ const Car = (props) => {
                                                 <img src={IconCalendar} className='car-icon'/>
                                             </div>
                                             <div className='car-book-text'>
-                                                Tahun 2020 (ambil dari API)
+                                                {car.year}
                                             </div>
                                         </div>
                                     </div>
