@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Accordion from 'react-bootstrap/Accordion'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './car.css'
 import PanelDisabled from '../../Components/PanelDisabled/PanelDisabled'
 import { Link } from 'react-router-dom'
+import {useSelector, useDispatch} from 'react-redux'
+import cardSlice from '../../Store/cardSlice'
 
 import IconPeople from "../../Assets/fi_users.svg"
 import IconGear from "../../Assets/fi_settings.svg"
@@ -15,6 +17,9 @@ const Car = (props) => {
 
     const param = useParams()
     const [car, setCar] = useState(null)
+
+    const dispatch = useDispatch()
+    const carCard = useSelector((store) => store.cardSlice.carCard)
 
     useEffect(() => {
         fetch(`https://625d73e74c36c753577540cb.mockapi.io/fejs2/api/c5-cars/${param.id}`)
@@ -125,9 +130,9 @@ const Car = (props) => {
                                             Rp. {car.price}
                                         </div>
                                     </div>
-                                    <button className='btn button-right-details-container'>
+                                    <button onClick={() => dispatch(cardSlice.actions.addCar({id: car.id}))} className='btn button-right-details-container'>
                                         <div type="submit" className='button-right-details'>
-                                            Pilih mobil
+                                            {carCard === car.id ? "Lanjutkan Pembayaran" : "Pilih Mobil"}
                                         </div>
                                     </button>
                                 </div>
@@ -135,9 +140,9 @@ const Car = (props) => {
                         </div>
                     </div>
                     <div className='button-center-container-outer'>
-                        <button className='btn button-center-container'>
+                        <button onClick={() => dispatch(cardSlice.actions.addCar({id: car.id}))} className='btn button-center-container'>
                             <div type="submit" className='button-center'>
-                                Pilih mobil
+                                {carCard === car.id ? "Lanjutkan Pembayaran" : "Pilih Mobil"}
                             </div>
                         </button>
                     </div>

@@ -2,12 +2,17 @@ import React from 'react'
 import CarDetail from './CarDetail'
 import CarImage from './CarImage'
 import './result.css'
+import { useSelector, useDispatch } from 'react-redux'
+import cardSlice from '../Store/cardSlice'
 
 import IconPeople from "../Assets/fi_users.svg"
 import IconGear from "../Assets/fi_settings.svg"
 import IconCalendar from "../Assets/fi_calendar.svg"
 
 const CarCard = (props) => {
+  const cardSlice = useSelector((store) => store.cardSlice.carCard)
+  const dispatch = useDispatch()
+
   return (
     <div className='car_card'>
       <div className='car-image-container'>
@@ -49,7 +54,7 @@ const CarCard = (props) => {
         </div>
         <button className='button-card-container'>
           <div type="submit" className='button-card'>
-              Pilih Mobil
+              {cardSlice === props.car.id ? "Lanjutkan Pembayaran" : "Pilih Mobil" }
           </div>
         </button>
       </div>
